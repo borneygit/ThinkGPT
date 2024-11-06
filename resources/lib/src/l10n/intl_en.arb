@@ -1,0 +1,15 @@
+{
+  "settingsTitle": "Settings",
+  "helpAssistant": "Is there anything I can help with?",
+  "gptInputHint": "Send a message to 'GPT'.",
+  "generalConfig": "General",
+  "basicConfiguration": "Basic",
+  "delete": "Delete",
+  "theme": "Theme",
+  "theme_system": "System",
+  "theme_dark": "Dark",
+  "theme_light": "Light",
+  "language": "Language",
+  "language_zh": "简体中文",
+  "language_en": "English"
+}
