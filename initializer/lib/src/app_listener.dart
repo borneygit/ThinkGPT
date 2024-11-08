@@ -33,6 +33,7 @@ class AppStartListener extends StatelessWidget {
         },
         failed: (e) {
           Log.e(e);
+          action.onError(context, e.toString());
         },
         orElse: () {});
   }
