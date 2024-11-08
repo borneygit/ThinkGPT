@@ -126,7 +126,7 @@ class InputWidget extends HookWidget {
       final session = Session(
           id: getIt<Uuid>().v4(),
           title: text,
-          model: 'claude-3-5-sonnet-20241022',
+          model: 'gpt-4o',
           type: 0,
           createdAt: now,
           updatedAt: now);
