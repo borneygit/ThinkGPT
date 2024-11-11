@@ -11,5 +11,14 @@
   "theme_light": "Light",
   "language": "Language",
   "language_zh": "简体中文",
-  "language_en": "English"
+  "language_en": "English",
+  "base_url": "Base Url",
+  "model": "Default Model",
+  "api_key": "API Key",
+  "base_url_hint": "Please enter your base url",
+  "api_key_hint": "Please enter your api key",
+  "open_settings": "Open settings",
+  "change_model": "Change model",
+  "set_base_url": "Set base url",
+  "set_api_key": "Set API Key"
 }

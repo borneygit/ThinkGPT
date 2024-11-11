@@ -11,5 +11,14 @@
   "theme_light": "浅色",
   "language": "语言",
   "language_zh": "简体中文",
-  "language_en": "English"
+  "language_en": "English",
+  "base_url": "API 基础地址",
+  "model": "默认模型",
+  "api_key": "API Key",
+  "base_url_hint": "请输入你的 API 基础地址",
+  "api_key_hint": "请输入你的 API Key",
+  "open_settings": "打开设置",
+  "change_model": "切换模型",
+  "set_base_url": "设置 API 基础地址",
+  "set_api_key": "设置 API Key"
 }

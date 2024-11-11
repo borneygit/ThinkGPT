@@ -1,6 +1,7 @@
 import 'package:dart_openai/dart_openai.dart';
 import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared/shared.dart';
 
 @lazySingleton
 class ChatService {
@@ -29,6 +30,7 @@ class ChatService {
   }
 
   Stream<String> streamChat(List<Message> messages, String model) async* {
+    Log.d("streamChat:$model");
     OpenAI.baseUrl = await _settingRepository.getBaseUrl();
     OpenAI.apiKey = await _settingRepository.getApiKey();
     final stream = OpenAI.instance.chat.createStream(

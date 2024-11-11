@@ -10,5 +10,6 @@ class AppConfig with _$AppConfig {
     @Default('') String language,
     @Default('') String baseUrl,
     @Default('') String apiKey,
+    @Default('') String model,
   }) = _AppConfig;
 }

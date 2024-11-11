@@ -25,10 +25,14 @@ class SettingRepositoryImpl implements SettingRepository {
   Future<ThemeMode> getThemeMode() => _appPreferences.getThemeMode();
 
   @override
+  Future<String> getModel() => _appPreferences.getModel();
+
+  @override
   Future<String> getLanguageCode() => _appPreferences.getLanguageCode();
 
   @override
-  Future<void> setLanguageCode(String value) => _appPreferences.setLanguageCode(value);
+  Future<void> setLanguageCode(String value) =>
+      _appPreferences.setLanguageCode(value);
 
   @override
   Future<void> setApiKey(String value) => _appPreferences.setApiKey(value);
@@ -37,8 +41,13 @@ class SettingRepositoryImpl implements SettingRepository {
   Future<void> setBaseUrl(String value) => _appPreferences.setBaseUrl(value);
 
   @override
-  Future<void> setHttpProxy(String value) => _appPreferences.setHttpProxy(value);
+  Future<void> setModel(String value) => _appPreferences.setModel(value);
 
   @override
-  Future<void> setThemeMode(ThemeMode value) => _appPreferences.setThemeMode(value);
+  Future<void> setHttpProxy(String value) =>
+      _appPreferences.setHttpProxy(value);
+
+  @override
+  Future<void> setThemeMode(ThemeMode value) =>
+      _appPreferences.setThemeMode(value);
 }

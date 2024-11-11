@@ -17,6 +17,10 @@ abstract class SettingRepository {
 
   Future<String> getApiKey();
 
+  Future<void> setModel(String value);
+
+  Future<String> getModel();
+
   Future<void> setHttpProxy(String value);
 
   Future<String> getHttpProxy();

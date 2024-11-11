@@ -19,25 +19,21 @@ class SessionCubit extends Cubit<SessionState> {
     emit(SessionStateActive(sessions: state.sessions, activeSession: session));
   }
 
-  Future<Session> upsertSession(Session? session) async {
-    if (session != null) {
-      final repository = await getIt.getAsync<ChatRepository>();
-      session = await repository.upsertSession(session);
-      final index = state.sessions.indexWhere((ele) => ele.id == session!.id);
-      if (index != -1) {
-        state.sessions[index] = session;
-      } else {
-        state.sessions = [session, ...state.sessions];
-      }
-    }
-    if (state.activeSession?.id == session?.id) {
-      emit(SessionStateUpdated(
-          sessions: state.sessions, activeSession: state.activeSession));
+  Future<Session> upsertSession(Session session) async {
+    final repository = await getIt.getAsync<ChatRepository>();
+    session = await repository.upsertSession(session);
+    final index = state.sessions.indexWhere((ele) => ele.id == session.id);
+    if (index != -1) {
+      state.sessions[index] = session;
     } else {
-      emit(
-          SessionStateActive(sessions: state.sessions, activeSession: session));
+      state.sessions = [session, ...state.sessions];
     }
-    return session!;
+
+    if (state.activeSession != null && state.activeSession!.id == session.id) {
+      emit(SessionStateUpdated(
+          sessions: state.sessions, activeSession: session));
+    }
+    return session;
   }
 
   void delete(Session session) async {

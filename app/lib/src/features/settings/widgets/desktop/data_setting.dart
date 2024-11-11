@@ -15,6 +15,7 @@ class DataSettingPage extends HookWidget {
     final config = context.read<AppConfigBloc>().state;
     final apiKeyController = useTextEditingController(text: config.apiKey);
     final baseUrlController = useTextEditingController(text: config.baseUrl);
+    final modelController = useTextEditingController(text: config.model);
     final isApiKeyVisible = useState(false);
 
     return Padding(
@@ -22,7 +23,7 @@ class DataSettingPage extends HookWidget {
       child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ListView.separated(
-            itemCount: 2,
+            itemCount: 3,
             separatorBuilder: (context, index) => normalDivider,
             itemBuilder: (context, index) {
               switch (index) {
@@ -35,10 +36,10 @@ class DataSettingPage extends HookWidget {
                     cursorColor: colorScheme.onPrimary,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      label: Text('Api Key',
+                      label: Text(IntlUtils.of(context).api_key,
                           style: TextStyle(
                               color: colorScheme.onPrimary, fontSize: 14)),
-                      hintText: 'Please enter your api key',
+                      hintText: IntlUtils.of(context).api_key_hint,
                       hintStyle: _itemHintTextStyle,
                       suffixIcon: IconButton(
                           icon: Icon(
@@ -54,7 +55,7 @@ class DataSettingPage extends HookWidget {
                     ),
                     style:
                         TextStyle(color: colorScheme.onPrimary, fontSize: 14),
-                    onSubmitted: (text) {
+                    onChanged: (text) {
                       context.read<AppConfigBloc>().setApiKey(text);
                     },
                   );
@@ -65,17 +66,37 @@ class DataSettingPage extends HookWidget {
                     controller: baseUrlController,
                     cursorColor: colorScheme.onPrimary,
                     decoration: InputDecoration(
-                      label: Text('Base Url',
+                      label: Text(IntlUtils.of(context).base_url,
                           style: TextStyle(
                               color: colorScheme.onPrimary, fontSize: 14)),
                       border: InputBorder.none,
-                      hintText: 'Please enter your base url',
+                      hintText: IntlUtils.of(context).base_url_hint,
                       hintStyle: _itemHintTextStyle,
                     ),
                     style:
                         TextStyle(color: colorScheme.onPrimary, fontSize: 14),
-                    onSubmitted: (text) {
+                    onChanged: (text) {
                       context.read<AppConfigBloc>().setBaseUrl(text);
+                    },
+                  );
+                case 2:
+                  return TextField(
+                    maxLines: 1,
+                    cursorHeight: 14,
+                    controller: modelController,
+                    cursorColor: colorScheme.onPrimary,
+                    decoration: InputDecoration(
+                      label: Text(IntlUtils.of(context).model,
+                          style: TextStyle(
+                              color: colorScheme.onPrimary, fontSize: 14)),
+                      border: InputBorder.none,
+                      hintText: config.model,
+                      hintStyle: _itemHintTextStyle,
+                    ),
+                    style:
+                        TextStyle(color: colorScheme.onPrimary, fontSize: 14),
+                    onChanged: (text) {
+                      context.read<AppConfigBloc>().setModel(text);
                     },
                   );
               }

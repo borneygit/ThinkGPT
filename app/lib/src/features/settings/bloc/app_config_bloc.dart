@@ -25,6 +25,12 @@ class AppConfigBloc extends Cubit<AppConfig> {
     emit(state.copyWith(baseUrl: baseUrl));
   }
 
+  void setModel(String model) async {
+    final repository = getIt<SettingRepository>();
+    repository.setModel(model);
+    emit(state.copyWith(model: model));
+  }
+
   void setTheme(ThemeMode theme) async {
     final repository = getIt<SettingRepository>();
     repository.setThemeMode(theme);

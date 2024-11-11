@@ -12,11 +12,14 @@ class AppStartRepositoryImpl implements AppStartRepository<AppConfig> {
     final themeMode = await settingRepository.getThemeMode();
     final baseUrl = await settingRepository.getBaseUrl();
     final apiKey = await settingRepository.getApiKey();
+    final model = await settingRepository.getModel();
     final language = await settingRepository.getLanguageCode();
+
     return AppConfig(
         themeMode: themeMode,
         baseUrl: baseUrl,
         apiKey: apiKey,
+        model: model,
         language: language);
   }
 }

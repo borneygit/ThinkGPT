@@ -29,7 +29,6 @@ class AppPreferences {
     await _prefs.setString(SharedPreferenceConstants.themeMode, mode.name);
   }
 
-
   Future<void> setLanguageCode(String languageCode) async {
     await _prefs.setString(SharedPreferenceConstants.language, languageCode);
   }
@@ -56,6 +55,16 @@ class AppPreferences {
 
   Future<String> getBaseUrl() async {
     return _prefs.getString(SharedPreferenceConstants.baseUrl) ?? '';
+  }
+
+  Future<void> setModel(String model) async {
+    if (model.isNotEmpty) {
+      await _prefs.setString(SharedPreferenceConstants.model, model);
+    }
+  }
+
+  Future<String> getModel() async {
+    return _prefs.getString(SharedPreferenceConstants.model) ?? 'gpt-4o';
   }
 
   Future<void> setHttpProxy(String httpProxy) async {

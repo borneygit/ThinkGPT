@@ -3,5 +3,6 @@ class SharedPreferenceConstants {
   static const String language = 'language';
   static const String apiKey = 'apiKey';
   static const String baseUrl = 'baseUrl';
+  static const String model = 'model';
   static const String httpProxy = 'httpProxy';
 }
