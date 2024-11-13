@@ -20,5 +20,6 @@
   "open_settings": "打开设置",
   "change_model": "切换模型",
   "set_base_url": "设置 API 基础地址",
-  "set_api_key": "设置 API Key"
+  "set_api_key": "设置 API Key",
+  "rename": "重命名"
 }

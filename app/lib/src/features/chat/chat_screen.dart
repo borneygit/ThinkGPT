@@ -15,6 +15,7 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => getIt<MessageCubit>()),
@@ -32,7 +33,24 @@ class ChatScreen extends StatelessWidget {
               color: Theme.of(context).colorScheme.surface,
               child: state.activeSession == null
                   ? EmptySessionWidget(key: ValueKey<String>(language))
-                  : const ActiveSessionWidget());
+                  : Stack(children: [
+                      const ActiveSessionWidget(),
+                      BlocConsumer<SessionCubit, SessionState>(
+                        listener: (context, state) {},
+                        builder: (context, state) {
+                          return Container(
+                            margin: const EdgeInsets.only(top: 8),
+                            padding: edgeInsetsH8V4,
+                            decoration: BoxDecoration(
+                                color: colorScheme.secondary,
+                                borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(20),
+                                    bottomRight: Radius.circular(20))),
+                            child: Text(state.activeSession!.model),
+                          );
+                        },
+                      )
+                    ]));
         },
       ),
     );

@@ -20,5 +20,6 @@
   "open_settings": "Open settings",
   "change_model": "Change model",
   "set_base_url": "Set base url",
-  "set_api_key": "Set API Key"
+  "set_api_key": "Set API Key",
+  "rename": "Rename"
 }
